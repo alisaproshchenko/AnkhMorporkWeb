@@ -18,5 +18,10 @@ namespace Web.Repositories
         {
             return _db.Assassins;
         }
+
+        public Assassin Get(int i)
+        {
+            return _db.Assassins.First(x => x.RewardMin <= i && x.RewardMax >= i && !x.Busy);
+        }
     }
 }

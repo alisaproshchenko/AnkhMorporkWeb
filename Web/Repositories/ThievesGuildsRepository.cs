@@ -20,5 +20,10 @@ namespace Web.Repositories
         {
             return _db.ThievesGuilds;
         }
+
+        public ThievesGuild Get(int id)
+        {
+            return _db.ThievesGuilds.First(x => x.Id == id);
+        }
     }
 }

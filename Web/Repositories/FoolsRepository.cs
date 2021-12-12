@@ -20,5 +20,10 @@ namespace Web.Repositories
         {
             return _db.Fools;
         }
+
+        public Fool Get(int id)
+        {
+            return _db.Fools.First(x => x.Id == id);
+        }
     }
 }

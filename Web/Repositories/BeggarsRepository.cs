@@ -18,5 +18,10 @@ namespace Web.Repositories
         {
             return _db.Beggars;
         }
+
+        public Beggar Get(int id)
+        {
+            return _db.Beggars.First(x => x.Id == id);
+        }
     }
 }
