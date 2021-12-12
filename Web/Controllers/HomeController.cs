@@ -10,7 +10,7 @@ namespace Web.Controllers
 {
     public class HomeController : Controller
     {
-        private EventsGenerator _events;
+        private readonly EventsGenerator _events;
 
         public HomeController()
         {
@@ -18,11 +18,26 @@ namespace Web.Controllers
         }
         public ActionResult Index()
         {
-            //var db = new AnkhMorporkContext();
-            //var сount = db.Assassins.Count();
             return View();
         }
 
+        public ActionResult RunGame()
+        {
+            var nextEntity = _events.GenerateEvent();
+            switch (nextEntity)
+            {
+                case NPCs.Assassin:
+                    return RedirectToAction("Index", "Assassins");
+                case NPCs.ThievesGuild:
+                    return RedirectToAction("Index", "ThievesGuild");
+                case NPCs.Beggar:
+                    return RedirectToAction("Index", "Beggars");
+                case NPCs.Fool:
+                    return RedirectToAction("Index", "Fools");
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
+        }
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";

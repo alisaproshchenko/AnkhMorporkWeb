@@ -2,13 +2,12 @@
 @{
     ViewBag.Title = "Index";
 }
-
+<h3></h3>
 <h2>@Model.WelcomingMessage</h2>
 <h3>What will you do?</h3>
-@using (Html.BeginForm())
-{
-    <div >
-        <p class=""><input type="radio" value="0" name="radio" checked> Make a contract</p><br/>
-        <p><input type="radio" value="1" name="radio"> Run away</p>
-    </div>
-}
+
+<div class="row">
+    <div class="col-md-3"><a @Html.ActionLink("Make a contract", "Play")></a></div>
+    <div class="col-lg-3"><a @Html.ActionLink("Run away", "Index", "Home")></a></div>
+</div>
+

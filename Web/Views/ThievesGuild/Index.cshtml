@@ -1,0 +1,15 @@
+﻿@model Web.Models.ThievesGuild
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>@Model.WelcomingMessage</h2>
+<h3>What will you do?</h3>
+@using (Html.BeginForm())
+{
+    <div >
+        <p class=""><input type="radio" value="0" name="radio" checked> Pay them</p><br/>
+        <p><input type="radio" value="1" name="radio"> Run away</p>
+    </div>
+    <button></button>
+}

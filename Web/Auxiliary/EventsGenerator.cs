@@ -7,23 +7,29 @@ namespace Web.Auxiliary
 {
     public class EventsGenerator
     {
-        public Dictionary<NPCs, double> Variety { get; }
-        private readonly double _probability;
-        private readonly double _part;
-        private static readonly Random Random = new Random();
+        private static readonly double Probability = 1.0 / Enum.GetNames(typeof(NPCs)).Length;
+        public static Dictionary<NPCs, double> Variety { get; } = new Dictionary<NPCs, double>
+        {
+            {NPCs.Assassin, Probability},
+            {NPCs.ThievesGuild, Probability},
+            {NPCs.Beggar, Probability},
+            {NPCs.Fool, Probability}
+        };
+        //private readonly double _part = 0.01 * (Variety.Count - 1);
+        public static readonly Random Random = new Random();
 
         public EventsGenerator()
         {
-            _probability = 1.0 / Enum.GetNames(typeof(NPCs)).Length;
+            //_probability = 1.0 / Enum.GetNames(typeof(NPCs)).Length;
 
-            Variety = new Dictionary<NPCs, double>
-            {
-                {NPCs.Assassin, _probability},
-                {NPCs.ThievesGuild, _probability},
-                {NPCs.Beggar, _probability},
-                {NPCs.Fool, _probability}
-            };
-            _part = 0.01 * (Variety.Count - 1);
+            //Variety = new Dictionary<NPCs, double>
+            //{
+            //    {NPCs.Assassin, _probability},
+            //    {NPCs.ThievesGuild, _probability},
+            //    {NPCs.Beggar, _probability},
+            //    {NPCs.Fool, _probability}
+            //};
+            //_part = 0.01 * (Variety.Count - 1);
         }
 
         public NPCs GenerateEvent() //choosing a next character to meet

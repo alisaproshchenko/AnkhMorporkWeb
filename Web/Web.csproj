@@ -130,7 +130,11 @@
     <Compile Include="Auxiliary\NPCs.cs" />
     <Compile Include="Contexts\AnkhMorporkContext.cs" />
     <Compile Include="Controllers\AssassinsController.cs" />
+    <Compile Include="Controllers\BeggarsController.cs" />
+    <Compile Include="Controllers\FoolsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PubController.cs" />
+    <Compile Include="Controllers\ThievesGuildController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -143,6 +147,7 @@
     <Compile Include="Models\Beggar.cs" />
     <Compile Include="Models\Fool.cs" />
     <Compile Include="Models\ThievesGuild.cs" />
+    <Compile Include="Player\Player.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\AssassinsRepository.cs" />
     <Compile Include="Repositories\BeggarsRepository.cs" />
@@ -188,6 +193,10 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Assassins\Index.cshtml" />
+    <Content Include="Views\ThievesGuild\Index.cshtml" />
+    <Content Include="Views\Fools\Index.cshtml" />
+    <Content Include="Views\Beggars\Index.cshtml" />
+    <Content Include="Views\Pub\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

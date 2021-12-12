@@ -23,5 +23,12 @@ namespace Web.Repositories
         {
             return _db.Assassins.First(x => x.RewardMin <= i && x.RewardMax >= i && !x.Busy);
         }
+        public int GetMinReward()
+        {
+            var selected = from x in _db.Assassins
+                where !x.Busy
+                select x.RewardMin;
+            return selected.Min();
+        }
     }
 }
