@@ -21,16 +21,20 @@ namespace Web.Controllers
         // GET: Beggars
         public ActionResult Index()
         {
-            var id = EventsGenerator.Random.Next(_uow.BeggarsRepository.GetAll().Count() + 1);
+            var id = EventsGenerator.Random.Next(_uow.BeggarsRepository.GetAll().Count()) + 1;
             return View(_uow.BeggarsRepository.Get(id));
         }
         public ActionResult Play(Beggar beggar)
         {
             if (beggar.Fee > Player.Player.Money) // if player is out of money
-                Player.Player.Die();
+                return RedirectToAction("Kill"); //Player.Player.Die();
 
             Player.Player.SpendMoney(beggar.Fee);
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("RunGame", "Home");
+        }
+        public ActionResult Kill(Beggar beggar)
+        {
+            return View(beggar);
         }
     }
 }

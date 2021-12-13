@@ -32,7 +32,12 @@ namespace Web.Controllers
 
             Player.Player.SpendMoney(thieves.Fee);
             thieves.Thefts--;
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("RunGame", "Home");
+        }
+
+        public ActionResult Kill(ThievesGuild thieves)
+        {
+            return View(thieves);
         }
     }
 }

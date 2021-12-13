@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Web.Auxiliary;
+using Web.Models;
 using Web.Repositories;
 
 namespace Web.Controllers
@@ -24,20 +25,35 @@ namespace Web.Controllers
             var id = 12;
             return View(_uow.AssassinsRepository.Get(id));
         }
-
-        public ActionResult Play()
+        [HttpGet]
+        public ActionResult GetMoney()
         {
-            var repository = (AssassinsRepository) _uow.AssassinsRepository;
+            return View("Play", 1);
+        }
+
+        [HttpPost]
+        public ActionResult Play(int payment)
+        {
+            var repository = (AssassinsRepository)_uow.AssassinsRepository;
             if (repository.GetMinReward() > Player.Player.Money) // if player is out of money
-                Player.Player.Die(); //"\n!!! - You are OUT OF MONEY" + 
+                RedirectToAction("Kill");    //Player.Player.Die(); //"\n!!! - You are OUT OF MONEY" + 
 
+            if (payment <= 0 || payment > Player.Player.Money) //validation
+                RedirectToAction("Play");
+
+            
             //var (foundAssassin, actualPayment) = repository.GetPayment(player);
-            var (foundAssassin, actualPayment) = (repository.Get(12), 12);
+            var foundAssassin = repository.Get(payment);
             if (foundAssassin == null)     // if player cannot actually pay for assassin or all of them are busy
-                Player.Player.Die();
+                RedirectToAction("Kill");
 
-            Player.Player.SpendMoney(actualPayment);
-            return RedirectToAction("Index", "Home");
+            Player.Player.SpendMoney(payment);
+            return RedirectToAction("RunGame", "Home");
+        }
+
+        public ActionResult Kill(Assassin assassin)
+        {
+            return View(assassin);
         }
     }
 }

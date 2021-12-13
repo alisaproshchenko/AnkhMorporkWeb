@@ -21,15 +21,15 @@ namespace Web.Controllers
         // GET: Fools
         public ActionResult Index()
         {
-            var id = EventsGenerator.Random.Next(_uow.FoolsRepository.GetAll().Count() + 1);
+            var id = EventsGenerator.Random.Next(_uow.FoolsRepository.GetAll().Count()) + 1;
             return View(_uow.FoolsRepository.Get(id));
         }
 
         public ActionResult Play(Fool fool)
         {
             Player.Player.GainMoney(fool.Fee);
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("RunGame", "Home");
         } 
-
+        
     }
 }

@@ -197,6 +197,10 @@
     <Content Include="Views\Fools\Index.cshtml" />
     <Content Include="Views\Beggars\Index.cshtml" />
     <Content Include="Views\Pub\Index.cshtml" />
+    <Content Include="Views\Assassins\Play.cshtml" />
+    <Content Include="Views\Assassins\Kill.cshtml" />
+    <Content Include="Views\Beggars\Kill.cshtml" />
+    <Content Include="Views\ThievesGuild\Kill.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
