@@ -10,13 +10,11 @@ namespace Web.Controllers
 {
     public class ThievesGuildController : Controller
     {
-        private UnitOfWork _uow;
-        private EventsGenerator _events;
+        private readonly UnitOfWork _uow;
 
         public ThievesGuildController()
         {
             _uow = new UnitOfWork();
-            _events = new EventsGenerator();
         }
         // GET: ThievesGuild
         public ActionResult Index()

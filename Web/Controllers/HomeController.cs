@@ -18,6 +18,7 @@ namespace Web.Controllers
         }
         public ActionResult Index()
         {
+            Player.Player.Restart();
             return View();
         }
 

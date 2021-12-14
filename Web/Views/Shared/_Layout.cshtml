@@ -5,48 +5,94 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="~/materialize/css/materialize.min.css" media="screen,projection" />
     @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+        @Scripts.Render("~/bundles/modernizr")
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
     <style>
         .money {
             font-size: medium;
-            color: aliceblue;
+            color: rgb(224, 242, 241);
             margin-top: 15px;
         }
+        .opacitive {
+            background: rgba(33, 33, 33, 0.8);
+            padding: 3%;
+            border: 1px solid transparent;
+            border-radius: 2%;
+            color: rgb(224, 242, 241)
+        }
+        h2 {
+            color: rgb(224, 242, 241)
+        }
+        body {
+            font-family: "Comic Sans MS"
+        }
+        .my-button {
+            background-color: rgb(0, 77, 64);
+            color: rgb(224, 242, 241)
+        }
+        .my-button:hover {
+            background-color: rgb(0, 121, 107);
+            color: rgb(224, 242, 241)
+        }
+        .messages {
+            background: rgba(33, 33, 33, 0.8);
+            padding: 3%;
+            border: 1px solid transparent;
+            border-radius: 2%;
+            color: rgb(224, 242, 241)
+        }
+        .messages label {
+            font-size: 28px;
+            color: rgb(224, 242, 241);
+        }
+        .decision {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 3%;
+            border: 1px solid transparent;
+            border-radius: 2%;
+            color: rgb(224, 242, 241);
+            margin-right: 50%
+        }
+            .decision label {
+                font-size: 28px;
+                color: rgb(224, 242, 241);
+            }
     </style>
 </head>
-<body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
+<body background="~/Content/background-3.jpg">
+    <div class="navbar navbar-inverse navbar-fixed-top teal darken-4 hoverable">
+        <div class="container lighten-2">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Start new Game", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                    <li><p class="money">You have @($"{Player.Money:0.00}")$</p></li>
-                    <li style="margin-right: 15px">@Html.ActionLink("Pub", "Index", "Pub")</li>
+                    <li>@Html.ActionLink("Visit Pub", "Index", "Pub")</li>
+                    <li class="right-aligned"><p class="money">Your budget: @($"{Player.Money:0.00}")&nbsp;&nbsp;&nbsp;You have @($"{Player.Beer}") beer</p></li>
                 </ul>
             </div>
         </div>
     </div>
     <div class="container body-content">
         @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
     </div>
-
+    <script type="text/javascript" src="~/materialize/js/materialize.min.js"></script>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
+
     @RenderSection("scripts", required: false)
+
 </body>
 </html>

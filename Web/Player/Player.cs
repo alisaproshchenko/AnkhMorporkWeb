@@ -11,6 +11,12 @@ namespace Web.Player
         public static bool IsDead { get; private set; }
         public static int Beer { get; private set; } = 0;
 
+        public static void Restart()
+        {
+            Money = 100.0;
+            IsDead = false;
+            Beer = 0;
+        }
         public static void GainMoney(double income)
         {
             Money += income;
@@ -28,7 +34,7 @@ namespace Web.Player
 
         public static void BuyBeer()
         {
-            Money -= 10;
+            Money -= 2;
             Beer++;
         }
 

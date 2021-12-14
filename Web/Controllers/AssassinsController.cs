@@ -6,48 +6,49 @@ using System.Web.Mvc;
 using Web.Auxiliary;
 using Web.Models;
 using Web.Repositories;
+using Web.ViewModels;
 
 namespace Web.Controllers
 {
     public class AssassinsController : Controller
     {
         private UnitOfWork _uow;
-        private EventsGenerator _events;
         public AssassinsController()
         {
             _uow = new UnitOfWork();
-            _events = new EventsGenerator();
         }
         // GET: Assassins
         public ActionResult Index()
         {
             //var id = EventsGenerator.Random.Next(_uow.AssassinsRepository.GetAll().Count() + 1);
-            var id = 12;
-            return View(_uow.AssassinsRepository.Get(id));
+            return View(_uow.AssassinsRepository.GetAll().First());
         }
         [HttpGet]
         public ActionResult GetMoney()
         {
-            return View("Play", 1);
+            return View(0);
         }
 
         [HttpPost]
-        public ActionResult Play(int payment)
+        public ActionResult GetMoney(int value)
         {
+            //if(!int.TryParse(payment, out var value))
+            //    RedirectToAction("Kill");
+
             var repository = (AssassinsRepository)_uow.AssassinsRepository;
             if (repository.GetMinReward() > Player.Player.Money) // if player is out of money
                 RedirectToAction("Kill");    //Player.Player.Die(); //"\n!!! - You are OUT OF MONEY" + 
 
-            if (payment <= 0 || payment > Player.Player.Money) //validation
-                RedirectToAction("Play");
+            if (value <= 0 || value > Player.Player.Money) //validation
+                RedirectToAction("GetMoney");
 
             
             //var (foundAssassin, actualPayment) = repository.GetPayment(player);
-            var foundAssassin = repository.Get(payment);
+            var foundAssassin = repository.Get(value);
             if (foundAssassin == null)     // if player cannot actually pay for assassin or all of them are busy
                 RedirectToAction("Kill");
 
-            Player.Player.SpendMoney(payment);
+            Player.Player.SpendMoney(value);
             return RedirectToAction("RunGame", "Home");
         }
 

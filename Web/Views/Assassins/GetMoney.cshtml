@@ -1,0 +1,16 @@
+﻿@{
+    ViewBag.Title = "GetMoney";
+}
+
+
+<div class="messages">
+    @using (Html.BeginForm("GetMoney", "Assassins", FormMethod.Post))
+    {
+    <label>Enter the amount of money you are able to pay</label>
+        <div class="input-field">
+            <input type="number" name="value" required="required" placeholder="Your payment" />
+        </div>
+        <br />
+        <input class="btn waves-effect waves-light my-button" type="submit" value="Pay" />
+    }
+</div>

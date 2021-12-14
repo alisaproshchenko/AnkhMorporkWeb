@@ -11,12 +11,9 @@ namespace Web.Controllers
     public class BeggarsController : Controller
     {
         private UnitOfWork _uow;
-        private EventsGenerator _events;
-
         public BeggarsController()
         {
             _uow = new UnitOfWork();
-            _events = new EventsGenerator();
         }
         // GET: Beggars
         public ActionResult Index()
@@ -27,9 +24,18 @@ namespace Web.Controllers
         public ActionResult Play(Beggar beggar)
         {
             if (beggar.Fee > Player.Player.Money) // if player is out of money
-                return RedirectToAction("Kill"); //Player.Player.Die();
+                return RedirectToAction("Kill", beggar); //Player.Player.Die();
 
             Player.Player.SpendMoney(beggar.Fee);
+            return RedirectToAction("RunGame", "Home");
+        }
+
+        public ActionResult ShareBeer(Beggar beggar)
+        {
+            if(Player.Player.Beer < 1)
+                return RedirectToAction("Kill", beggar); //Player.Player.Die();
+
+            Player.Player.SpendBeer();
             return RedirectToAction("RunGame", "Home");
         }
         public ActionResult Kill(Beggar beggar)

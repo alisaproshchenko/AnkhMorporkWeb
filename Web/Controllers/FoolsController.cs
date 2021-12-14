@@ -11,12 +11,10 @@ namespace Web.Controllers
     public class FoolsController : Controller
     {
         private UnitOfWork _uow;
-        private EventsGenerator _events;
 
         public FoolsController()
         {
             _uow = new UnitOfWork();
-            _events = new EventsGenerator();
         }
         // GET: Fools
         public ActionResult Index()

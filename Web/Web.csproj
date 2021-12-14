@@ -155,8 +155,10 @@
     <Compile Include="Repositories\IRepository.cs" />
     <Compile Include="Repositories\ThievesGuildsRepository.cs" />
     <Compile Include="UnitOfWork.cs" />
+    <Compile Include="ViewModels\PaymentViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\background-3.jpg" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -165,8 +167,14 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="materialize\css\materialize.css" />
+    <Content Include="materialize\css\materialize.min.css" />
+    <Content Include="materialize\js\materialize.js" />
+    <Content Include="materialize\js\materialize.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="materialize\LICENSE" />
+    <Content Include="materialize\README.md" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -197,10 +205,10 @@
     <Content Include="Views\Fools\Index.cshtml" />
     <Content Include="Views\Beggars\Index.cshtml" />
     <Content Include="Views\Pub\Index.cshtml" />
-    <Content Include="Views\Assassins\Play.cshtml" />
     <Content Include="Views\Assassins\Kill.cshtml" />
     <Content Include="Views\Beggars\Kill.cshtml" />
     <Content Include="Views\ThievesGuild\Kill.cshtml" />
+    <Content Include="Views\Assassins\GetMoney.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

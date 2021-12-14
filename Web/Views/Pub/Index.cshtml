@@ -3,10 +3,13 @@
     ViewBag.Title = "Index";
 }
 
-<h2>"The Mended Drum" pub</h2>
-<h3>2$ for each bottle of beer</h3>
-<h4>Remember, you can only care 2 bottles of beer maximum!</h4>
-@using (Html.BeginForm())
-{
-    <input type="submit" value="Buy some beer" onclick=""/>
-}
+<h2 class="messages">"The Mended Drum" pub</h2>
+<div class="decision">
+    @using (Html.BeginForm())
+    {
+        <label>2$ for each bottle of beer</label>
+        <br /><label>Remember, you can only care 2 bottles of beer maximum!</label>
+        <input class="btn waves-effect waves-light my-button" type="button" value="Buy some beer" onclick="location.href = '@Url.Action("BuyBeer")'" />
+        <input class="btn waves-effect waves-light my-button" type="button" value="Go out" onclick="location.href = '@Url.Action("RunGame", "Home")'"/>
+    }
+</div>

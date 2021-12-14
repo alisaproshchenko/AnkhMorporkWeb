@@ -1,40 +1,36 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
-
-<div class="jumbotron">
-    <h1>Ankh-Morpork City Game!</h1>
-    <p class="lead">Ankh-Morpork lies on the River Ankh (the most polluted waterway on the Discworld and reputedly solid enough to walk on), 
+<h2>Welcome to <br/>Ankh-Morpork City Game!</h2>
+<div class="col s2 m2 opacitive" >
+    <p class="lead">Ankh-Morpork lies on the River Ankh (the most polluted waterway on the Discworld and reputedly solid enough to walk on),
         where the fertile loam of the Sto Plains meets the Circle Sea. This, naturally, puts it in an excellent trading position.
-    <br/><br/>
+        <br/><br/>
         The AM$ (Ankh-Morpork dollar) is equal to 100 pennies (pence).
-    <br/><br/>
-        The central city divides more or less into Ankh (the posh part) and Morpork (the humble part, which includes the slum area known as "the Shades"), 
+        <br/><br/>
+        The central city divides more or less into Ankh (the posh part) and Morpork (the humble part, which includes the slum area known as "the Shades"),
         which are separated by the River Ankh.
-    <br/><br/>
+        <br/><br/>
         It can be dangerous to walk the streets. So watch out!
     </p>
-    
 </div>
-
-<div class="row">
-    <h2>Rules:</h2>
-    <div style="font-size: medium">
+<h2>Rules:</h2>
+<div class="col s2 m2 opacitive" >
+    <div class="lead">
 
         <ol>
             <li>Each step of the game you will have to make a decision of only TWO ways!</li>
             <li>
                 You LOOSE if:
                 <ul>
-                    <li>you`re getting killed</li>
-                    <li>you`re out of money</li>
+                    <li>- you`re getting killed</li>
+                    <li>- you`re out of money</li>
                 </ul>
 
             </li>
             <li>You can pass by "The Mended Drum" pub and get a beer there. Then when you will face a beggar who needs a beer you can share it with them.
                 The Player can care 2 pints of beer max (equals 2 glasses). If the you have no beer for the beggar the game is over</li>
         </ol>
-        <p>@Html.ActionLink("Let`s Go!", "RunGame", "Home")</p>
-        
+        <input class="btn waves-effect waves-light my-button center-align" type="button" value="Let`s Go!" onclick="location.href = '@Url.Action("RunGame", "Home")'" />
     </div>
 </div>

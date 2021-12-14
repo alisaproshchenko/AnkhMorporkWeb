@@ -3,10 +3,14 @@
     ViewBag.Title = "Index";
 }
 
-<h2>@Model.WelcomingMessage</h2>
-<h3>What will you do?</h3>
+<h2 class="messages">@Model.WelcomingMessage</h2>
 
-<div class="row">
-    <div class="col-md-3">@Html.ActionLink("Give money", "Play", @Model)</div>
-    <div class="col-lg-3">@Html.ActionLink("Run away", "Kill", @Model)</div>
+<div class="row decision">
+    <label>What will you do?</label><br />
+    @if (@Model.Fee != 0)
+    {
+        <input class="btn waves-effect waves-light my-button" type="button" value="Give him money" onclick="location.href = '@Url.Action("Play", @Model)'" />
+    }
+    <input class="btn waves-effect waves-light my-button" type="button" value="Share beer" onclick="location.href = '@Url.Action("ShareBeer", @Model)'" />
+    <input class="btn waves-effect waves-light my-button" type="button" value="Run away" onclick="location.href = '@Url.Action("Kill", @Model)'" />
 </div>
