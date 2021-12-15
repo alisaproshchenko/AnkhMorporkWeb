@@ -5,12 +5,20 @@
 
 <h2 class="messages">@Model.WelcomingMessage</h2>
 
-<div class="row decision">
-    <label>What will you do?</label><br />
-    @if (@Model.Fee != 0)
-    {
-        <input class="btn waves-effect waves-light my-button" type="button" value="Give him money" onclick="location.href = '@Url.Action("Play", @Model)'" />
-    }
-    <input class="btn waves-effect waves-light my-button" type="button" value="Share beer" onclick="location.href = '@Url.Action("ShareBeer", @Model)'" />
-    <input class="btn waves-effect waves-light my-button" type="button" value="Run away" onclick="location.href = '@Url.Action("Kill", @Model)'" />
+<div class="container row ">
+    <div class="col s6 decision">
+        <label>What will you do?</label><br />
+        @if (@Model.Fee != 0)
+        {
+            <input class="btn waves-effect waves-light my-button" type="button" value="Give him money" onclick="location.href = '@Url.Action("Play", @Model)'" />
+        }
+        else
+        {
+            <input class="btn waves-effect waves-light my-button" type="button" value="Share beer" onclick="location.href = '@Url.Action("ShareBeer", @Model)'" />
+        }
+        <input class="btn waves-effect waves-light my-button" type="button" value="Run away" onclick="location.href = '@Url.Action("Kill", @Model)'" />
+    </div>
+    <div class="col s6">
+        <img src="~/Content/EntitiesImages/beggars-guild-removebg-preview.png" alt="Mended Drum Pub Image" align="right" style="float: right;" />
+    </div>
 </div>

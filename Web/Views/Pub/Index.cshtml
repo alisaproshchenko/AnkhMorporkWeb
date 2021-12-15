@@ -5,12 +5,19 @@
 
 
 <h2 class="messages">"The Mended Drum" pub</h2>
-<div class="decision">
-    @using (Html.BeginForm())
-    {
-        <label>2$ for each bottle of beer</label>
-        <br /><label>Remember, you can only care 2 bottles of beer maximum!</label>
-        <input class="btn waves-effect waves-light my-button" type="button" value="Buy some beer" onclick="location.href = '@Url.Action("BuyBeer")'" />
-        <input class="btn waves-effect waves-light my-button" type="button" value="Go out" onclick="location.href = '@Url.Action("RunGame", "Home")'"/>
-    }
+<div class="container row ">
+    <div class="col s6 decision">
+        @using (Html.BeginForm())
+        {
+            <label>2$ for each bottle of beer</label>
+            <br /><label>Remember, you can only care 2 bottles of beer maximum!</label>
+            <input class="btn waves-effect waves-light my-button" type="button" value="Buy some beer" onclick="location.href = '@Url.Action("BuyBeer")'" />
+            <input class="btn waves-effect waves-light my-button" type="button" value="Go out" onclick="location.href = '@Url.Action("RunGame", "Home")'" />
+        }
+    </div>
+    <div class="col s6">
+        <img src="~/Content/mended-pub.jpg" alt="Mended Drum Pub Image" align="right" style="float: right;" />
+    </div>
 </div>
+    
+

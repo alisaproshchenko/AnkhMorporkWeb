@@ -5,9 +5,15 @@
 
 <h2 class="messages">@Model.WelcomingMessage</h2>
 
-<div class="col decision">
-    <label>What will you do?</label><br/>
-    <input class="btn waves-effect waves-light my-button" type="button" value="Make a contract" onclick="location.href = '@Url.Action("GetMoney")'"/>
-    <input class="btn waves-effect waves-light my-button" type="button" value="Run away" onclick="location.href = '@Url.Action("Kill", @Model)'"/>
+<div class="container row ">
+    <div class="col s6 decision">
+        <label>What will you do?</label><br/>
+        <input class="btn waves-effect waves-light my-button" type="button" value="Make a contract" onclick="location.href = '@Url.Action("GetMoney")'"/>
+        <input class="btn waves-effect waves-light my-button" type="button" value="Run away" onclick="location.href = '@Url.Action("Kill", @Model)'"/>
+    </div>
+    <div class="col s6" >
+        <img src="~/Content/EntitiesImages/ankh-morpork-civic-protection-stickers-removebg-preview.png" alt="Mended Drum Pub Image" align="right" style="float: right;" />
+    </div>
 </div>
+
 
