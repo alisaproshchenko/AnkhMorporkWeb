@@ -10,10 +10,11 @@ namespace Web.Repositories
 {
     public class AssassinsRepository : IRepository<Assassin>
     {
-        private readonly AnkhMorporkContext _db;
-        public AssassinsRepository(AnkhMorporkContext db)
+        private static AssassinsContext _db;
+        public AssassinsRepository()
         {
-            _db = db;
+            if (_db == null)
+                _db = new AssassinsContext();
         }
         public IEnumerable<Assassin> GetAll()
         {
@@ -22,7 +23,6 @@ namespace Web.Repositories
 
         public Assassin Get(int i)
         {
-            //return _db.Assassins.First(x => x.RewardMin <= i && x.RewardMax >= i && !x.Busy);
             var found = from x in _db.Assassins
                 where !x.Busy && x.RewardMin <= i && x.RewardMax >= i
                 select x;

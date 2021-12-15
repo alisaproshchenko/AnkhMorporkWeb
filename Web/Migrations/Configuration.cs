@@ -7,15 +7,15 @@ namespace Web.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<Web.Contexts.AnkhMorporkContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<Web.Contexts.AssassinsContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-            ContextKey = "Web.Contexts.AnkhMorporkContext";
+            ContextKey = "Web.Contexts.AssassinsContext";
         }
 
-        protected override void Seed(Web.Contexts.AnkhMorporkContext context)
+        protected override void Seed(Web.Contexts.AssassinsContext context)
         {
             //  This method will be called after migrating to the latest version.
 

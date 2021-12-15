@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.UI;
 using Web.Auxiliary;
 using Web.Models;
 using Web.Repositories;
-using Web.ViewModels;
 
 namespace Web.Controllers
 {
@@ -20,34 +20,42 @@ namespace Web.Controllers
         // GET: Assassins
         public ActionResult Index()
         {
-            //var id = EventsGenerator.Random.Next(_uow.AssassinsRepository.GetAll().Count() + 1);
+            TempData["notFound"] = false;
+            TempData["outOfMoney"] = false;
             return View(_uow.AssassinsRepository.GetAll().First());
         }
         [HttpGet]
         public ActionResult GetMoney()
         {
-            return View(0);
+            return View();
         }
 
         [HttpPost]
         public ActionResult GetMoney(int value)
         {
-            //if(!int.TryParse(payment, out var value))
-            //    RedirectToAction("Kill");
-
             var repository = (AssassinsRepository)_uow.AssassinsRepository;
             if (repository.GetMinReward() > Player.Player.Money) // if player is out of money
-                return RedirectToAction("Kill", _uow.AssassinsRepository.GetAll().First());    //Player.Player.Die(); //"\n!!! - You are OUT OF MONEY" + 
+            {
+                TempData["outOfMoney"] = true;
+                return RedirectToAction("Kill", _uow.AssassinsRepository.GetAll().First());
+            }    
 
             if (value <= 0 || value > Player.Player.Money) //validation
-                return RedirectToAction("Kill", _uow.AssassinsRepository.GetAll().First());
+            {
+                TempData["notFound"] = true;
+                return View();
+            }
 
-            
-            //var (foundAssassin, actualPayment) = repository.GetPayment(player);
+
             var foundAssassin = repository.Get(value);
-            if (foundAssassin == null)     // if player cannot actually pay for assassin or all of them are busy
-                return RedirectToAction("Kill", _uow.AssassinsRepository.GetAll().First());
+            if (foundAssassin == null) // if player cannot actually pay for assassin or all of them are busy for the player`s payment
+            {
+                TempData["notFound"] = true;
+                return View();
+            }
+            //return RedirectToAction("Kill", _uow.AssassinsRepository.GetAll().First());
 
+            TempData["notFound"] = false;
             Player.Player.SpendMoney(value);
             return RedirectToAction("RunGame", "Home");
         }

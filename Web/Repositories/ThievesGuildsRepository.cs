@@ -9,11 +9,12 @@ namespace Web.Repositories
 {
     public class ThievesGuildsRepository : IRepository<ThievesGuild>
     {
-        private readonly AnkhMorporkContext _db;
+        private static ThievesContext _db;
 
-        public ThievesGuildsRepository(AnkhMorporkContext db)
+        public ThievesGuildsRepository()
         {
-            _db = db;
+            if (_db == null)
+                _db = new ThievesContext();
         }
 
         public IEnumerable<ThievesGuild> GetAll()

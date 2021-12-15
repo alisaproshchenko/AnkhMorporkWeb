@@ -16,8 +16,9 @@ namespace Web.Controllers
 
         public ActionResult BuyBeer()
         {
-            if(Player.Player.Beer < 2)
+            if (Player.Player.Beer < 2)
                 Player.Player.BuyBeer();
+
             return View("Index");
         }
     }

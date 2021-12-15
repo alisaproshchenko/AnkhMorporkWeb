@@ -18,13 +18,17 @@ namespace Web.Controllers
         // GET: Beggars
         public ActionResult Index()
         {
+            TempData["outOfMoney"] = false;
             var id = EventsGenerator.Random.Next(_uow.BeggarsRepository.GetAll().Count()) + 1;
             return View(_uow.BeggarsRepository.Get(id));
         }
         public ActionResult Play(Beggar beggar)
         {
             if (beggar.Fee > Player.Player.Money) // if player is out of money
-                return RedirectToAction("Kill", beggar); //Player.Player.Die();
+            {
+                TempData["outOfMoney"] = true;
+                return RedirectToAction("Kill", beggar);
+            } 
 
             Player.Player.SpendMoney(beggar.Fee);
             return RedirectToAction("RunGame", "Home");
@@ -33,7 +37,7 @@ namespace Web.Controllers
         public ActionResult ShareBeer(Beggar beggar)
         {
             if(Player.Player.Beer < 1)
-                return RedirectToAction("Kill", beggar); //Player.Player.Die();
+                return RedirectToAction("Kill", beggar); 
 
             Player.Player.SpendBeer();
             return RedirectToAction("RunGame", "Home");

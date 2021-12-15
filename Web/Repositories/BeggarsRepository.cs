@@ -9,10 +9,11 @@ namespace Web.Repositories
 {
     public class BeggarsRepository : IRepository<Beggar>
     {
-        private readonly AnkhMorporkContext _db;
-        public BeggarsRepository(AnkhMorporkContext db)
+        private static BeggarsContext _db;
+        public BeggarsRepository()
         {
-            _db = db;
+            if(_db == null)
+                _db = new BeggarsContext();
         }
         public IEnumerable<Beggar> GetAll()
         {
