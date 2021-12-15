@@ -6,7 +6,7 @@
 <div class="messages" style="margin-top:2%">
     @using (Html.BeginForm("GetMoney", "Assassins", FormMethod.Post))
     {
-    <label>Enter the amount of money you are able to pay</label>
+        <label>Enter the amount of money you are able to pay</label>
         <div class="input-field">
             <input type="number" name="value" required="required" placeholder="Your payment" />
         </div>
@@ -14,3 +14,7 @@
         <input class="btn waves-effect waves-light my-button" type="submit" value="Pay" />
     }
 </div>
+@if ((bool)@TempData["notFound"])
+{
+    <script>alert("There is no available assassin found for this payment or the payment value is invalid. Try another amount");</script>
+}

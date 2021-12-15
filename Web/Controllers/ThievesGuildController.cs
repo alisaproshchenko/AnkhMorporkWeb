@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Linq;
 using System.Web.Mvc;
-using Web.Auxiliary;
 using Web.Models;
 
 namespace Web.Controllers
@@ -19,6 +15,7 @@ namespace Web.Controllers
         // GET: ThievesGuild
         public ActionResult Index()
         {
+            TempData["outOfMoney"] = false;
             var id = _uow.ThievesGuildRepository.GetAll().Count();
             return View(_uow.ThievesGuildRepository.Get(id));
         }
@@ -26,7 +23,10 @@ namespace Web.Controllers
         public ActionResult Play(ThievesGuild thieves)
         {
             if (thieves.Fee > Player.Player.Money) // if player is out of money
+            {
+                TempData["outOfMoney"] = true;
                 return RedirectToAction("Kill", thieves);
+            }
 
             Player.Player.SpendMoney(thieves.Fee);
             thieves.Thefts--;

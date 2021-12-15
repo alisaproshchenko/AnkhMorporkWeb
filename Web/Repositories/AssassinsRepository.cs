@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Web;
-using System.Web.Mvc.Html;
 using Web.Contexts;
 using Web.Models;
 
@@ -22,7 +19,6 @@ namespace Web.Repositories
 
         public Assassin Get(int i)
         {
-            //return _db.Assassins.First(x => x.RewardMin <= i && x.RewardMax >= i && !x.Busy);
             var found = from x in _db.Assassins
                 where !x.Busy && x.RewardMin <= i && x.RewardMax >= i
                 select x;

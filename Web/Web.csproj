@@ -155,7 +155,6 @@
     <Compile Include="Repositories\IRepository.cs" />
     <Compile Include="Repositories\ThievesGuildsRepository.cs" />
     <Compile Include="UnitOfWork.cs" />
-    <Compile Include="ViewModels\PaymentViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\background-3.jpg" />
