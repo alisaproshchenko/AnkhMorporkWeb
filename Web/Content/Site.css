@@ -22,3 +22,69 @@ select,
 textarea {
     max-width: 280px;
 }
+.money {
+    font-size: medium;
+    color: rgb(224, 242, 241);
+    margin-top: 15px;
+}
+
+.opacitive {
+    background: rgba(33, 33, 33, 0.8);
+    padding: 3%;
+    border: 1px solid transparent;
+    border-radius: 2%;
+    color: rgb(224, 242, 241)
+}
+
+h2 {
+    color: rgb(224, 242, 241)
+}
+
+body {
+    font-family: "Comic Sans MS"
+}
+
+.my-button {
+    background-color: rgb(0, 77, 64);
+    color: rgb(224, 242, 241)
+}
+
+.my-button:hover {
+    background-color: rgb(0, 121, 107);
+    color: rgb(224, 242, 241)
+}
+
+.messages {
+    background: rgba(33, 33, 33, 0.8);
+    padding: 3%;
+    border: 1px solid transparent;
+    border-radius: 2%;
+    color: rgb(224, 242, 241)
+}
+
+.messages label {
+    font-size: 28px;
+    color: rgb(224, 242, 241);
+}
+
+.decision {
+    background: rgba(79, 53, 19, 0.8);
+    padding: 3%;
+    border: 1px solid transparent;
+    border-radius: 2%;
+    color: rgb(224, 242, 241);
+    margin-right: 50%
+}
+
+.decision label {
+    font-size: 28px;
+    color: rgb(224, 242, 241);
+}
+
+.main-header {
+    font-size: 38px;
+    text-align: center;
+    font-weight: bold;
+    color: rgba(0, 77, 64, 0.9);
+    text-shadow: 2px 2px 2px white
+}

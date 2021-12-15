@@ -26,7 +26,7 @@ namespace Web.Controllers
         public ActionResult Play(ThievesGuild thieves)
         {
             if (thieves.Fee > Player.Player.Money) // if player is out of money
-                Player.Player.Die();
+                return RedirectToAction("Kill", thieves);
 
             Player.Player.SpendMoney(thieves.Fee);
             thieves.Thefts--;

@@ -37,16 +37,16 @@ namespace Web.Controllers
 
             var repository = (AssassinsRepository)_uow.AssassinsRepository;
             if (repository.GetMinReward() > Player.Player.Money) // if player is out of money
-                RedirectToAction("Kill");    //Player.Player.Die(); //"\n!!! - You are OUT OF MONEY" + 
+                return RedirectToAction("Kill", _uow.AssassinsRepository.GetAll().First());    //Player.Player.Die(); //"\n!!! - You are OUT OF MONEY" + 
 
             if (value <= 0 || value > Player.Player.Money) //validation
-                RedirectToAction("GetMoney");
+                return RedirectToAction("Kill", _uow.AssassinsRepository.GetAll().First());
 
             
             //var (foundAssassin, actualPayment) = repository.GetPayment(player);
             var foundAssassin = repository.Get(value);
             if (foundAssassin == null)     // if player cannot actually pay for assassin or all of them are busy
-                RedirectToAction("Kill");
+                return RedirectToAction("Kill", _uow.AssassinsRepository.GetAll().First());
 
             Player.Player.SpendMoney(value);
             return RedirectToAction("RunGame", "Home");
