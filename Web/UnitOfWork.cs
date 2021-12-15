@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing.Printing;
-using System.Linq;
-using System.Web;
-using Web.Contexts;
-using Web.Models;
+﻿using Web.Models;
 using Web.Repositories;
 
 namespace Web

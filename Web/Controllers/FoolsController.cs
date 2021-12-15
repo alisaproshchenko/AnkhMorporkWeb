@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Linq;
 using System.Web.Mvc;
 using Web.Auxiliary;
 using Web.Models;
@@ -10,7 +7,7 @@ namespace Web.Controllers
 {
     public class FoolsController : Controller
     {
-        private UnitOfWork _uow;
+        private readonly UnitOfWork _uow;
 
         public FoolsController()
         {

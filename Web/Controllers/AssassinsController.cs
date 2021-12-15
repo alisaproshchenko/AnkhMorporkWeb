@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Linq;
 using System.Web.Mvc;
-using System.Web.UI;
-using Web.Auxiliary;
 using Web.Models;
 using Web.Repositories;
 
@@ -12,7 +7,7 @@ namespace Web.Controllers
 {
     public class AssassinsController : Controller
     {
-        private UnitOfWork _uow;
+        private readonly UnitOfWork _uow;
         public AssassinsController()
         {
             _uow = new UnitOfWork();
@@ -40,7 +35,7 @@ namespace Web.Controllers
                 return RedirectToAction("Kill", _uow.AssassinsRepository.GetAll().First());
             }    
 
-            if (value <= 0 || value > Player.Player.Money) //validation
+            if (value <= 0 || value > Player.Player.Money) 
             {
                 TempData["notFound"] = true;
                 return View();
@@ -53,8 +48,6 @@ namespace Web.Controllers
                 TempData["notFound"] = true;
                 return View();
             }
-            //return RedirectToAction("Kill", _uow.AssassinsRepository.GetAll().First());
-
             TempData["notFound"] = false;
             Player.Player.SpendMoney(value);
             return RedirectToAction("RunGame", "Home");
