@@ -2,6 +2,7 @@
 @{
     ViewBag.Title = "Kill";
 }
+
 @if ((bool)@TempData["outOfMoney"])
 {
     <h2 class="messages">Unfortunately, you are out of money! @Model.KillingMessage</h2>
@@ -10,4 +11,3 @@ else
 {
     <h2 class="messages">@Model.KillingMessage</h2>
 }
-
