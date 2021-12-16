@@ -1,0 +1,6 @@
+
+.vs/
+packages/
+Web/bin/
+Web/obj/
+*.orig
