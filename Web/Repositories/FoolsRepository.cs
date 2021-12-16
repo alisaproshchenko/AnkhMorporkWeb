@@ -22,7 +22,7 @@ namespace Web.Repositories
 
         public Fool Get(int id)
         {
-            return _db.Fools.First(x => x.Id == id);
+            return _db.Fools.FirstOrDefault(x => x.Id == id);
         }
     }
 }

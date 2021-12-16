@@ -18,15 +18,15 @@ namespace Web.Repositories
             return _db.Assassins;
         }
 
-        public Assassin Get(int i)
+        public Assassin Get(int id)
         {
-            var found = from x in _db.Assassins
-                where !x.Busy && x.RewardMin <= i && x.RewardMax >= i
-                select x;
-
-            return !found.Any() ? null : found.First();
+            return _db.Assassins.FirstOrDefault(x => x.Id == id);
         }
-        public int GetMinReward()
+        public Assassin FindAssassin(decimal payment)
+        {
+            return _db.Assassins.FirstOrDefault(x => !x.Busy && x.RewardMin <= payment && x.RewardMax >= payment);
+        }
+        public decimal GetMinReward()
         {
             var selected = from x in _db.Assassins
                 where !x.Busy

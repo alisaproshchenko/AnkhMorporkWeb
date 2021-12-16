@@ -20,7 +20,7 @@ namespace Web.Repositories
 
         public Beggar Get(int id)
         {
-            return _db.Beggars.First(x => x.Id == id);
+            return _db.Beggars.FirstOrDefault(x => x.Id == id);
         }
     }
 }

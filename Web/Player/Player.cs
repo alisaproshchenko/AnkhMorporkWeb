@@ -2,20 +2,20 @@
 {
     public class Player
     {
-        public static double Money { get; private set; } = 100.0;
+        public static decimal Money { get; private set; } = 100.0m;
         public static int Beer { get; private set; } = 0;
 
         public static void Restart()
         {
-            Money = 100.0;
+            Money = 100.0m;
             Beer = 0;
         }
-        public static void GainMoney(double income)
+        public static void GainMoney(decimal income)
         {
             Money += income;
         }
 
-        public static void SpendMoney(double expenditure)
+        public static void SpendMoney(decimal expenditure)
         {
             Money -= expenditure;
         }

@@ -26,13 +26,13 @@ namespace Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult GetMoney(int value)
+        public ActionResult GetMoney(decimal value)
         {
             var repository = (AssassinsRepository)_uow.AssassinsRepository;
             if (repository.GetMinReward() > Player.Player.Money) // if player is out of money
             {
                 TempData["outOfMoney"] = true;
-                return RedirectToAction("Kill", _uow.AssassinsRepository.GetAll().First());
+                return RedirectToAction("Kill", repository.GetAll().First());
             }    
 
             if (value <= 0 || value > Player.Player.Money) 
@@ -42,7 +42,7 @@ namespace Web.Controllers
             }
 
 
-            var foundAssassin = repository.Get(value);
+            var foundAssassin = repository.FindAssassin(value);
             if (foundAssassin == null) // if player cannot actually pay for assassin or all of them are busy for the player`s payment
             {
                 TempData["notFound"] = true;

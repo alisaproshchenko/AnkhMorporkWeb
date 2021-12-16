@@ -2,17 +2,9 @@
 
 namespace Web.Models
 {
-    public class ThievesGuild
+    public class ThievesGuild : NPC
     {
-        [Key]
-        public int Id { get; set; }
         public int Thefts { get; set; }
-        public int Fee { get; set; }
-        [Required]
-        public string WelcomingMessage { get; set; }
-        [Required]
-        public string KillingMessage { get; set; }
-        [Required]
-        public string PlayingMessage { get; set; }
+        public decimal Fee { get; set; }
     }
 }

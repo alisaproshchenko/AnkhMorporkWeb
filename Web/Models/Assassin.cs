@@ -2,18 +2,11 @@
 
 namespace Web.Models
 {
-    public class Assassin
+    public class Assassin : NPC
     {
-        [Key]
-        public int Id { get; set; }
         public bool Busy { get; set; }
-        public int RewardMin { get; set; }
-        public int RewardMax { get; set; }
-        [Required]
-        public string WelcomingMessage { get; set; }
-        [Required]
-        public string KillingMessage { get; set; }
-        [Required]
-        public string PlayingMessage { get; set; }
+        public decimal RewardMin { get; set; }
+        public decimal RewardMax { get; set; }
+
     }
 }

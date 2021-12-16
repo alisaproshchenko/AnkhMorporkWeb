@@ -5,17 +5,12 @@ namespace Web
 {
     public class UnitOfWork
     {
-        private static AnkhMorporkContext _context;
-
         public UnitOfWork()
         {
-            if(_context == null) 
-                _context = new AnkhMorporkContext();
-
-            AssassinsRepository = new AssassinsRepository(_context);
-            BeggarsRepository = new BeggarsRepository(_context);
-            FoolsRepository = new FoolsRepository(_context);
-            ThievesGuildRepository = new ThievesGuildsRepository(_context);
+            AssassinsRepository = new AssassinsRepository();
+            BeggarsRepository = new BeggarsRepository();
+            FoolsRepository = new FoolsRepository();
+            ThievesGuildRepository = new ThievesGuildsRepository();
         }
         public IRepository<Assassin> AssassinsRepository { get; }
 

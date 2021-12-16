@@ -22,7 +22,7 @@ namespace Web.Repositories
 
         public ThievesGuild Get(int id)
         {
-            return _db.ThievesGuilds.First(x => x.Id == id);
+            return _db.ThievesGuilds.FirstOrDefault(x => x.Id == id);
         }
     }
 }
