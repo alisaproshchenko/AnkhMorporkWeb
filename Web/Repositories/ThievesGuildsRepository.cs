@@ -7,12 +7,11 @@ namespace Web.Repositories
 {
     public class ThievesGuildsRepository : IRepository<ThievesGuild>
     {
-        private static ThievesContext _db;
-
-        public ThievesGuildsRepository()
+        private static WebApplicationContext _db;
+        public ThievesGuildsRepository(WebApplicationContext db)
         {
             if (_db == null)
-                _db = new ThievesContext();
+                _db = db;
         }
 
         public IEnumerable<ThievesGuild> GetAll()

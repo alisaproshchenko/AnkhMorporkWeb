@@ -234,6 +234,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Auxiliary\EventsGenerator.cs" />
     <Compile Include="Auxiliary\NPCs.cs" />
+    <Compile Include="Contexts\ApplicationContext.cs" />
     <Compile Include="Contexts\AssassinsContext.cs" />
     <Compile Include="Contexts\BeggarsContext.cs" />
     <Compile Include="Contexts\FoolsContext.cs" />

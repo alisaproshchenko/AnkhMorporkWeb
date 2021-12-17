@@ -1,16 +1,20 @@
-﻿using Web.Models;
+﻿using Web.Contexts;
+using Web.Models;
 using Web.Repositories;
 
 namespace Web
 {
     public class UnitOfWork
     {
+        private static WebApplicationContext _db;
         public UnitOfWork()
         {
-            AssassinsRepository = new AssassinsRepository();
-            BeggarsRepository = new BeggarsRepository();
-            FoolsRepository = new FoolsRepository();
-            ThievesGuildRepository = new ThievesGuildsRepository();
+            if (_db == null)
+                _db = new WebApplicationContext();
+            AssassinsRepository = new AssassinsRepository(_db);
+            BeggarsRepository = new BeggarsRepository(_db);
+            FoolsRepository = new FoolsRepository(_db);
+            ThievesGuildRepository = new ThievesGuildsRepository(_db);
         }
         public IRepository<Assassin> AssassinsRepository { get; }
 

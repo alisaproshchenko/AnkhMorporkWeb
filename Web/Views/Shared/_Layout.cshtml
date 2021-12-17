@@ -28,7 +28,7 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Visit Pub", "Index", "Pub")</li>
+                    <li id="pubLink">@Html.ActionLink("Visit Pub", "Index", "Pub")</li>
                     <li class="right-aligned"><p class="money">Your budget: @($"{Player.Money:0.00}")&nbsp;&nbsp;&nbsp;You have @($"{Player.Beer}") beer</p></li>
                 </ul>
             </div>

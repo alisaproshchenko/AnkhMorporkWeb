@@ -7,11 +7,11 @@ namespace Web.Repositories
 {
     public class BeggarsRepository : IRepository<Beggar>
     {
-        private static BeggarsContext _db;
-        public BeggarsRepository()
+        private static WebApplicationContext _db;
+        public BeggarsRepository(WebApplicationContext db)
         {
-            if(_db == null)
-                _db = new BeggarsContext();
+            if (_db == null)
+                _db = db;
         }
         public IEnumerable<Beggar> GetAll()
         {

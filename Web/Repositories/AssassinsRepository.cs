@@ -7,11 +7,11 @@ namespace Web.Repositories
 {
     public class AssassinsRepository : IRepository<Assassin>
     {
-        private static AssassinsContext _db;
-        public AssassinsRepository()
+        private static WebApplicationContext _db;
+        public AssassinsRepository(WebApplicationContext db)
         {
-            if (_db == null)
-                _db = new AssassinsContext();
+            if(_db == null)
+                _db = db;
         }
         public IEnumerable<Assassin> GetAll()
         {

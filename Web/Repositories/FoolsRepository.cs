@@ -7,12 +7,11 @@ namespace Web.Repositories
 {
     public class FoolsRepository : IRepository<Fool>
     {
-        private static FoolsContext _db;
-
-        public FoolsRepository()
+        private static WebApplicationContext _db;
+        public FoolsRepository(WebApplicationContext db)
         {
             if (_db == null)
-                _db = new FoolsContext();
+                _db = db;
         }
 
         public IEnumerable<Fool> GetAll()
